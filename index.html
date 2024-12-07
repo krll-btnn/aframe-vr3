@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>3.  Модель, текстура и анимация</title>
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="stoneTexture"
+        src="textures/stoneTexture.jpg">
+      <img id="grassTexture"
+        src="textures/grassTexture.jpg">
+      <img id="skyTexture"
+        src="textures/skyTexture.jpg">
+    </a-assets>
+
+    <a-box position="0 1 -5" rotation="0 45 45" width="1" height="0.5" depth="1.5" src="#stoneTexture">
+      <a-animation attribute="rotation" to="0 405 45" dur="10000" repeat="indefinite" easing="linear"></a-animation>
+      <a-animation attribute="position" begin="click" dur="1000" to="0 2 -5" direction="alternate"
+        repeat="1"></a-animation>
+      <a-animation attribute="scale" begin="mouseenter" dur="800" to="1.2 0.6 1.8"></a-animation>
+      <a-animation attribute="scale" begin="mouseleave" dur="800" to="1 0.5 1.5"></a-animation>
+    </a-box>
+
+    <a-sky src="#skyTexture"></a-sky>
+    <a-light type="ambient" color="#445451"></a-light>
+    <a-light type="point" intensity="2" position="2 4 4"></a-light>
+    <a-plane src="#grassTexture" rotation="-90 0 0" height="100" width="100"></a-plane>
+
+    <a-text value="Strange Box" color="#000" position="-0.9 0.2 -3" scale="1.5 1.5" shadow="true"></a-text>
+
+    <a-camera>
+      <a-cursor color="#FAFAFA"></a-cursor>
+    </a-camera>
+  </a-scene>
+</body>
+
+</html>
